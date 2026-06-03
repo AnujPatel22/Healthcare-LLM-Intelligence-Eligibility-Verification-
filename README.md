@@ -1,8 +1,26 @@
 # Healthcare LLM Intelligence & Eligibility Verification Service
 
+[![CI](https://github.com/AnujPatel22/Healthcare-LLM-Intelligence-Eligibility-Verification-/actions/workflows/ci.yml/badge.svg)](https://github.com/AnujPatel22/Healthcare-LLM-Intelligence-Eligibility-Verification-/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/Python-FastAPI-3776AB?logo=python&logoColor=white)
+![React](https://img.shields.io/badge/React-TypeScript-3178C6?logo=react&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-pgvector-4169E1?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
+![Synthetic Data](https://img.shields.io/badge/Data-100%25%20Synthetic-2E7D32)
+
 A full-stack healthcare AI platform that simulates insurance eligibility verification, payer-specific claim validation, ICD/CPT/HCPCS codebook matching, and RAG-powered billing rule retrieval using FastAPI, LangChain-compatible orchestration, PostgreSQL with pgvector, React, TypeScript, Docker, and AWS-style deployment architecture.
 
 This project uses only synthetic data. It is not a production healthcare, billing, compliance, clinical, or payer system.
+
+## Why It Looks Legit
+
+This repo is built as a serious portfolio-grade healthcare infrastructure project, not a toy demo:
+
+- Working Docker Compose stack with FastAPI, React, PostgreSQL, and pgvector.
+- Real API surface with seeded synthetic claims, eligibility records, payer rules, and codebooks.
+- Deterministic mock LLM fallback so reviewers can run it without paid API keys.
+- Rule-grounded claim validation with cited payer policy matches and code compatibility checks.
+- Backend tests, CI workflow, security notes, AWS-style deployment docs, and benchmark story.
+- Captured screenshots from the running app, included below for fast GitHub review.
 
 ## Resume-Ready Summary
 
@@ -42,6 +60,19 @@ Claim validation with payer rule matches and mock grounded explanation:
 ![Claim validation](docs/screenshots/claim-validation.png)
 
 More UI screenshots are available in [docs/app-screenshots.md](docs/app-screenshots.md).
+
+## 60-Second Reviewer Demo
+
+After `docker compose up --build`, open the dashboard and run this flow:
+
+1. Open `http://localhost:5173`.
+2. Verify eligibility for `SYN-PAT-1001` and `Apex Health Plan`.
+3. Validate claim `CLM-7001`.
+4. Review payer rules `RULE-APEX-IMG-001` and `RULE-APEX-IMG-002`.
+5. Search codebook entry `70553`.
+6. Open Scaling Benchmarks and confirm the synthetic 20,000+ queries/day target.
+
+For API-only review, use [docs/recruiter-demo-guide.md](docs/recruiter-demo-guide.md).
 
 ## Features
 
