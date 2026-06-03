@@ -11,6 +11,12 @@ A full-stack healthcare AI platform that simulates insurance eligibility verific
 
 This project uses only synthetic data. It is not a production healthcare, billing, compliance, clinical, or payer system.
 
+## Product Story
+
+Healthcare claim readiness is usually a coordination problem: eligibility needs to be checked, payer rules need to be interpreted, diagnosis and procedure codes need to make sense together, and prior authorization requirements need to be caught before the claim moves downstream.
+
+This project turns that workflow into a runnable full-stack system. A user can verify synthetic eligibility, validate a claim, retrieve payer-specific rules, check ICD/CPT/HCPCS compatibility, and generate a grounded explanation. The system is intentionally designed around the difference between fast deterministic validation and slower AI explanation, which makes the scaling story more credible.
+
 ## Why It Looks Legit
 
 This repo is built as a serious portfolio-grade healthcare infrastructure project, not a toy demo:
@@ -21,6 +27,17 @@ This repo is built as a serious portfolio-grade healthcare infrastructure projec
 - Rule-grounded claim validation with cited payer policy matches and code compatibility checks.
 - Backend tests, CI workflow, security notes, AWS-style deployment docs, and benchmark story.
 - Captured screenshots from the running app, included below for fast GitHub review.
+- PostgreSQL stores both operational records and pgvector-compatible embeddings.
+- The benchmark page explains synthetic performance targets without pretending they are production measurements.
+- The app has enough seeded data to demonstrate the workflow immediately after startup.
+
+## What Reviewers Should Notice
+
+- Eligibility, claim validation, payer rule search, codebook search, and benchmarks are all implemented as working API flows.
+- The UI is an operational dashboard, not a placeholder landing page.
+- The mock LLM fallback keeps the demo reliable even when no external API key is present.
+- Rule matches and codebook matches are cited in claim explanations.
+- The repository includes tests, screenshots, docs, seed data, CI, Docker, and deployment notes.
 
 ## Resume-Ready Summary
 
@@ -82,6 +99,14 @@ For API-only review, use [docs/recruiter-demo-guide.md](docs/recruiter-demo-guid
 - Synthetic ICD/CPT/HCPCS codebook search and compatibility matching.
 - Mock-default LLM explanation grounded in retrieved rules and codebook matches.
 - Scaling benchmark dashboard with synthetic 20,000+ queries/day target, p50/p95 latency, cache hit rate, replicas, CPU, and memory profile.
+
+## Engineering Notes
+
+- The backend service layer keeps eligibility, validation, retrieval, code matching, and benchmark logic independently testable.
+- Deterministic embeddings make the project self-contained while still preserving a vector-store architecture.
+- The FastAPI service seeds PostgreSQL on startup so reviewers do not need a manual migration path for the demo.
+- The frontend favors dense, repeatable healthcare operations workflows over decorative marketing sections.
+- The benchmark story separates cached deterministic paths from future external LLM latency.
 
 ## Local Setup
 
