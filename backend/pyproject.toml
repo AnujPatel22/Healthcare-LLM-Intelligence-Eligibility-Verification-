@@ -1,0 +1,10 @@
+[project]
+name = "healthcare-llm-eligibility-backend"
+version = "0.1.0"
+description = "Synthetic healthcare LLM eligibility and claim intelligence API"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["app/tests"]
+addopts = "-q"

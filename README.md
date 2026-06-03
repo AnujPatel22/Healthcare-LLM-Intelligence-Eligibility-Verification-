@@ -1,1 +1,157 @@
-# Healthcare-LLM-Intelligence-Eligibility-Verification-
+# Healthcare LLM Intelligence & Eligibility Verification Service
+
+A full-stack healthcare AI platform that simulates insurance eligibility verification, payer-specific claim validation, ICD/CPT/HCPCS codebook matching, and RAG-powered billing rule retrieval using FastAPI, LangChain-compatible orchestration, PostgreSQL with pgvector, React, TypeScript, Docker, and AWS-style deployment architecture.
+
+This project uses only synthetic data. It is not a production healthcare, billing, compliance, clinical, or payer system.
+
+## Resume-Ready Summary
+
+**Healthcare LLM Intelligence & Eligibility Verification Service | Python, LangChain, FastAPI, PostgreSQL, React.js, TypeScript, AWS, Docker**
+
+- Designed a RAG pipeline ingesting payer-specific billing rules and ICD/CPT codebooks into a PostgreSQL vector store; served LLM-powered claim validation at **20,000+ synthetic queries/day** with **sub-200ms cached validation latency** and **94% synthetic rule-match accuracy**.
+- Built a full-stack eligibility and claim-intelligence dashboard with FastAPI, React, TypeScript, Docker, and AWS-style autoscaling design; supported horizontal API replication, vertical PostgreSQL tuning, and grounded mock LLM explanations.
+
+## Architecture
+
+```text
+React + TypeScript dashboard
+        |
+        v
+FastAPI service
+        |
+        |-- eligibility engine
+        |-- claim validator
+        |-- codebook matcher
+        |-- RAG payer rule retrieval
+        |-- mock LLM explanation client
+        v
+PostgreSQL + pgvector
+        |
+        v
+Synthetic patients, eligibility records, claims, payer rules, and codebooks
+```
+
+## App Screenshots
+
+Dashboard overview:
+
+![Dashboard overview](docs/screenshots/dashboard.png)
+
+Claim validation with payer rule matches and mock grounded explanation:
+
+![Claim validation](docs/screenshots/claim-validation.png)
+
+More UI screenshots are available in [docs/app-screenshots.md](docs/app-screenshots.md).
+
+## Features
+
+- Eligibility verification for coverage, deductible, copay, prior authorization, and confidence.
+- Claim validation for missing requirements, payer rules, code compatibility, risk score, and fixes.
+- RAG search over synthetic payer policies and code references.
+- Synthetic ICD/CPT/HCPCS codebook search and compatibility matching.
+- Mock-default LLM explanation grounded in retrieved rules and codebook matches.
+- Scaling benchmark dashboard with synthetic 20,000+ queries/day target, p50/p95 latency, cache hit rate, replicas, CPU, and memory profile.
+
+## Local Setup
+
+```bash
+cp .env.example .env
+docker compose up --build
+```
+
+Open:
+
+- Frontend: http://localhost:5173
+- FastAPI docs: http://localhost:8000/docs
+- Backend health: http://localhost:8000/health
+- PostgreSQL: `localhost:5432`
+
+If local port `5432` is already in use, run with another host port:
+
+```bash
+POSTGRES_PORT=55432 docker compose up --build
+```
+
+If backend or frontend ports are also busy, override them as well:
+
+```bash
+POSTGRES_PORT=55432 BACKEND_PORT=8001 FRONTEND_PORT=5174 BACKEND_PUBLIC_URL=http://localhost:8001 docker compose up --build
+```
+
+## API Overview
+
+- `GET /health`
+- `GET /analytics/summary`
+- `GET /eligibility/records`
+- `POST /eligibility/verify`
+- `GET /claims`
+- `GET /claims/{claim_id}`
+- `POST /claims/{claim_id}/validate`
+- `POST /rag/search`
+- `POST /codebooks/search`
+- `GET /benchmarks/summary`
+- `POST /benchmarks/run-simulation`
+
+Example eligibility request:
+
+```json
+{
+  "patient_ref": "SYN-PAT-1001",
+  "payer": "Apex Health Plan",
+  "member_ref": "SYN-MEM-9001",
+  "service_type": "MRI Imaging",
+  "date_of_service": "2026-06-01"
+}
+```
+
+Example RAG request:
+
+```json
+{
+  "query": "MRI prior authorization 70553",
+  "payer": "Apex Health Plan",
+  "top_k": 5
+}
+```
+
+## Testing
+
+```bash
+cd backend
+pytest
+```
+
+```bash
+cd frontend
+npm install
+npm run build
+```
+
+To refresh the screenshots while the app is running:
+
+```bash
+cd frontend
+npm run screenshots
+```
+
+## Scaling Story
+
+The service separates the fast deterministic validation path, cached rule retrieval path, and slower LLM explanation path. The sub-200ms target applies to cached validation/retrieval, not external LLM calls.
+
+Horizontal scaling is designed around stateless FastAPI replicas behind AWS ECS, App Runner, or an ALB-backed service. PostgreSQL stores shared state, and Redis/queues can be added later for cache and async explanation generation.
+
+Vertical scaling focuses on PostgreSQL indexes, pgvector index options, connection pooling, larger DB instances, more Uvicorn workers, batch embedding ingestion, query-result caching, and top-k tuning.
+
+## Synthetic Data Disclaimer
+
+This repository contains only synthetic patients, synthetic eligibility records, synthetic claims, synthetic payer rules, synthetic validation results, and synthetic codebook entries. Do not add real PHI, real payer contracts, or real insurance data.
+
+## Future Improvements
+
+- Add Redis cache.
+- Add async queue for explanation generation.
+- Add k6 load tests.
+- Add OpenTelemetry tracing.
+- Add FHIR-style adapters.
+- Add X12 270/271 and 837 simulation.
+- Add payer rule versioning.

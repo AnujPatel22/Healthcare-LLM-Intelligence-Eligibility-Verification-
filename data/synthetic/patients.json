@@ -1,0 +1,44 @@
+[
+  {
+    "patient_ref": "SYN-PAT-1001",
+    "display_name": "Synthetic Patient A",
+    "age_band": "35-44",
+    "region": "Arizona",
+    "synthetic_note": "Synthetic profile for imaging eligibility workflows."
+  },
+  {
+    "patient_ref": "SYN-PAT-1002",
+    "display_name": "Synthetic Patient B",
+    "age_band": "45-54",
+    "region": "Colorado",
+    "synthetic_note": "Synthetic profile for physical therapy claim readiness."
+  },
+  {
+    "patient_ref": "SYN-PAT-1003",
+    "display_name": "Synthetic Patient C",
+    "age_band": "55-64",
+    "region": "Nevada",
+    "synthetic_note": "Synthetic profile for durable medical equipment checks."
+  },
+  {
+    "patient_ref": "SYN-PAT-1004",
+    "display_name": "Synthetic Patient D",
+    "age_band": "25-34",
+    "region": "Utah",
+    "synthetic_note": "Synthetic profile for lab billing validation."
+  },
+  {
+    "patient_ref": "SYN-PAT-1005",
+    "display_name": "Synthetic Patient E",
+    "age_band": "65-74",
+    "region": "New Mexico",
+    "synthetic_note": "Synthetic profile for cardiology authorization checks."
+  },
+  {
+    "patient_ref": "SYN-PAT-1006",
+    "display_name": "Synthetic Patient F",
+    "age_band": "18-24",
+    "region": "Arizona",
+    "synthetic_note": "Synthetic profile for preventive care validation."
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "code": "G44.1",
+    "code_type": "ICD",
+    "description": "Vascular headache syndrome",
+    "service_type": "MRI Imaging",
+    "compatible_codes": ["70553"],
+    "incompatible_codes": ["97110"],
+    "risk_weight": 12
+  },
+  {
+    "code": "70553",
+    "code_type": "CPT",
+    "description": "MRI brain with and without contrast material",
+    "service_type": "MRI Imaging",
+    "compatible_codes": ["G44.1"],
+    "incompatible_codes": ["M54.50", "Z00.00"],
+    "risk_weight": 18
+  },
+  {
+    "code": "M54.50",
+    "code_type": "ICD",
+    "description": "Low back pain, unspecified",
+    "service_type": "Physical Therapy",
+    "compatible_codes": ["97110"],
+    "incompatible_codes": ["70553"],
+    "risk_weight": 8
+  },
+  {
+    "code": "97110",
+    "code_type": "CPT",
+    "description": "Therapeutic exercises to develop strength and endurance",
+    "service_type": "Physical Therapy",
+    "compatible_codes": ["M54.50"],
+    "incompatible_codes": ["G44.1"],
+    "risk_weight": 7
+  },
+  {
+    "code": "R26.81",
+    "code_type": "ICD",
+    "description": "Unsteadiness on feet",
+    "service_type": "DME",
+    "compatible_codes": ["E0114"],
+    "incompatible_codes": ["99395"],
+    "risk_weight": 10
+  },
+  {
+    "code": "E0114",
+    "code_type": "HCPCS",
+    "description": "Crutches underarm pair",
+    "service_type": "DME",
+    "compatible_codes": ["R26.81"],
+    "incompatible_codes": ["Z00.00"],
+    "risk_weight": 13
+  },
+  {
+    "code": "Z13.220",
+    "code_type": "ICD",
+    "description": "Encounter for screening for lipoid disorders",
+    "service_type": "Laboratory",
+    "compatible_codes": ["80061"],
+    "incompatible_codes": ["93015"],
+    "risk_weight": 5
+  },
+  {
+    "code": "80061",
+    "code_type": "CPT",
+    "description": "Lipid panel",
+    "service_type": "Laboratory",
+    "compatible_codes": ["Z13.220"],
+    "incompatible_codes": ["I20.9"],
+    "risk_weight": 5
+  },
+  {
+    "code": "E11.9",
+    "code_type": "ICD",
+    "description": "Type 2 diabetes mellitus without complications",
+    "service_type": "Laboratory",
+    "compatible_codes": ["83036"],
+    "incompatible_codes": ["70553"],
+    "risk_weight": 9
+  },
+  {
+    "code": "83036",
+    "code_type": "CPT",
+    "description": "Hemoglobin A1c",
+    "service_type": "Laboratory",
+    "compatible_codes": ["E11.9"],
+    "incompatible_codes": ["G44.1"],
+    "risk_weight": 6
+  },
+  {
+    "code": "I20.9",
+    "code_type": "ICD",
+    "description": "Angina pectoris, unspecified",
+    "service_type": "Cardiology",
+    "compatible_codes": ["93015"],
+    "incompatible_codes": ["80061"],
+    "risk_weight": 14
+  },
+  {
+    "code": "93015",
+    "code_type": "CPT",
+    "description": "Cardiovascular stress test",
+    "service_type": "Cardiology",
+    "compatible_codes": ["I20.9"],
+    "incompatible_codes": ["Z13.220"],
+    "risk_weight": 16
+  },
+  {
+    "code": "Z00.00",
+    "code_type": "ICD",
+    "description": "Encounter for general adult medical examination",
+    "service_type": "Preventive Care",
+    "compatible_codes": ["99395"],
+    "incompatible_codes": ["E0114"],
+    "risk_weight": 3
+  },
+  {
+    "code": "99395",
+    "code_type": "CPT",
+    "description": "Preventive medicine visit, established patient",
+    "service_type": "Preventive Care",
+    "compatible_codes": ["Z00.00"],
+    "incompatible_codes": ["R26.81"],
+    "risk_weight": 4
+  },
+  {
+    "code": "R51.9",
+    "code_type": "ICD",
+    "description": "Headache, unspecified",
+    "service_type": "MRI Imaging",
+    "compatible_codes": ["70553"],
+    "incompatible_codes": ["97110"],
+    "risk_weight": 13
+  },
+  {
+    "code": "72148",
+    "code_type": "CPT",
+    "description": "MRI lumbar spine without contrast",
+    "service_type": "MRI Imaging",
+    "compatible_codes": ["M54.50"],
+    "incompatible_codes": ["G44.1"],
+    "risk_weight": 17
+  },
+  {
+    "code": "97530",
+    "code_type": "CPT",
+    "description": "Therapeutic activities",
+    "service_type": "Physical Therapy",
+    "compatible_codes": ["M54.50"],
+    "incompatible_codes": ["I20.9"],
+    "risk_weight": 7
+  },
+  {
+    "code": "A5500",
+    "code_type": "HCPCS",
+    "description": "Diabetic depth shoe",
+    "service_type": "DME",
+    "compatible_codes": ["E11.9"],
+    "incompatible_codes": ["G44.1"],
+    "risk_weight": 15
+  },
+  {
+    "code": "36415",
+    "code_type": "CPT",
+    "description": "Routine venipuncture",
+    "service_type": "Laboratory",
+    "compatible_codes": ["E11.9", "Z13.220"],
+    "incompatible_codes": ["R26.81"],
+    "risk_weight": 3
+  },
+  {
+    "code": "93000",
+    "code_type": "CPT",
+    "description": "Electrocardiogram routine ECG",
+    "service_type": "Cardiology",
+    "compatible_codes": ["I20.9"],
+    "incompatible_codes": ["Z00.00"],
+    "risk_weight": 9
+  }
+]

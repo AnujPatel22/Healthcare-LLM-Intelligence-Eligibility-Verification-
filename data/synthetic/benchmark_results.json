@@ -1,0 +1,15 @@
+[
+  {
+    "name": "synthetic-local-baseline",
+    "queries_per_day_target": 20000,
+    "p50_latency_ms": 92,
+    "p95_latency_ms": 176,
+    "cache_hit_rate": 0.82,
+    "rule_match_accuracy": 0.94,
+    "horizontal_replicas": 3,
+    "cpu_profile": "2 vCPU API containers with autoscaling target at 60 percent CPU",
+    "memory_profile": "4 GB PostgreSQL baseline with vector index headroom",
+    "is_synthetic": true,
+    "notes": "Synthetic local benchmark target for portfolio demo; not a production performance claim."
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "rule_id": "RULE-APEX-IMG-001",
+    "payer": "Apex Health Plan",
+    "service_type": "MRI Imaging",
+    "rule_type": "Prior Authorization",
+    "code_refs": ["70553", "G44.1"],
+    "title": "MRI brain prior authorization",
+    "content": "MRI brain with contrast requires prior authorization and documentation supporting neurologic medical necessity.",
+    "denial_reason": "Missing prior authorization",
+    "requires_authorization": true
+  },
+  {
+    "rule_id": "RULE-APEX-LAB-001",
+    "payer": "Apex Health Plan",
+    "service_type": "Laboratory",
+    "rule_type": "Medical Necessity",
+    "code_refs": ["83036", "E11.9"],
+    "title": "A1c diabetes diagnosis support",
+    "content": "Hemoglobin A1c is supported when billed with a synthetic diabetes diagnosis code and frequency is documented.",
+    "denial_reason": "Diagnosis support missing",
+    "requires_authorization": false
+  },
+  {
+    "rule_id": "RULE-APEX-LAB-002",
+    "payer": "Apex Health Plan",
+    "service_type": "Laboratory",
+    "rule_type": "Eligibility",
+    "code_refs": ["80061", "Z13.220"],
+    "title": "Lipid screening eligibility check",
+    "content": "Preventive lipid screening requires active coverage on the date of service.",
+    "denial_reason": "Inactive coverage",
+    "requires_authorization": false
+  },
+  {
+    "rule_id": "RULE-NOVA-PT-001",
+    "payer": "NovaCare Advantage",
+    "service_type": "Physical Therapy",
+    "rule_type": "Visit Limit",
+    "code_refs": ["97110", "M54.50"],
+    "title": "Physical therapy progress note",
+    "content": "Therapeutic exercise is compatible with low back pain when progress notes support ongoing functional improvement.",
+    "denial_reason": "Documentation insufficient",
+    "requires_authorization": false
+  },
+  {
+    "rule_id": "RULE-NOVA-IMG-001",
+    "payer": "NovaCare Advantage",
+    "service_type": "MRI Imaging",
+    "rule_type": "Prior Authorization",
+    "code_refs": ["70553"],
+    "title": "Advanced imaging authorization",
+    "content": "Advanced MRI imaging requires prior authorization and diagnosis-to-procedure support before submission.",
+    "denial_reason": "Authorization or medical necessity missing",
+    "requires_authorization": true
+  },
+  {
+    "rule_id": "RULE-PIONEER-DME-001",
+    "payer": "Pioneer Mutual",
+    "service_type": "DME",
+    "rule_type": "Prior Authorization",
+    "code_refs": ["E0114", "R26.81"],
+    "title": "DME mobility aid authorization",
+    "content": "Crutches require mobility limitation documentation and prior authorization when billed through a DME supplier.",
+    "denial_reason": "DME authorization missing",
+    "requires_authorization": true
+  },
+  {
+    "rule_id": "RULE-SUMMIT-CARD-001",
+    "payer": "Summit Senior Care",
+    "service_type": "Cardiology",
+    "rule_type": "Medical Necessity",
+    "code_refs": ["93015", "I20.9"],
+    "title": "Stress test diagnosis support",
+    "content": "Cardiovascular stress testing is supported for angina when ordering documentation is attached.",
+    "denial_reason": "Ordering documentation missing",
+    "requires_authorization": true
+  },
+  {
+    "rule_id": "RULE-NOVA-PREV-001",
+    "payer": "NovaCare Advantage",
+    "service_type": "Preventive Care",
+    "rule_type": "Coverage",
+    "code_refs": ["99395", "Z00.00"],
+    "title": "Preventive visit clean path",
+    "content": "Annual preventive medicine visit with general adult exam diagnosis follows a clean validation path under active coverage.",
+    "denial_reason": "Coverage mismatch",
+    "requires_authorization": false
+  },
+  {
+    "rule_id": "RULE-APEX-IMG-002",
+    "payer": "Apex Health Plan",
+    "service_type": "MRI Imaging",
+    "rule_type": "Place of Service",
+    "code_refs": ["70553"],
+    "title": "Outpatient imaging place of service",
+    "content": "Outpatient hospital MRI claims should include facility documentation and authorization reference.",
+    "denial_reason": "Facility documentation missing",
+    "requires_authorization": true
+  },
+  {
+    "rule_id": "RULE-NOVA-PT-002",
+    "payer": "NovaCare Advantage",
+    "service_type": "Physical Therapy",
+    "rule_type": "Modifier Guidance",
+    "code_refs": ["97110"],
+    "title": "Therapy treatment documentation",
+    "content": "Therapeutic exercise should include time-based documentation and a signed plan of care.",
+    "denial_reason": "Time documentation missing",
+    "requires_authorization": false
+  },
+  {
+    "rule_id": "RULE-PIONEER-DME-002",
+    "payer": "Pioneer Mutual",
+    "service_type": "DME",
+    "rule_type": "Supplier",
+    "code_refs": ["E0114"],
+    "title": "DME supplier credential check",
+    "content": "DME claims require synthetic supplier credential status and item delivery confirmation.",
+    "denial_reason": "Supplier validation missing",
+    "requires_authorization": false
+  },
+  {
+    "rule_id": "RULE-SUMMIT-CARD-002",
+    "payer": "Summit Senior Care",
+    "service_type": "Cardiology",
+    "rule_type": "Eligibility",
+    "code_refs": ["93015"],
+    "title": "Cardiology active eligibility",
+    "content": "Cardiology stress testing requires active member eligibility and ordering provider documentation.",
+    "denial_reason": "Eligibility or ordering provider mismatch",
+    "requires_authorization": true
+  }
+]
